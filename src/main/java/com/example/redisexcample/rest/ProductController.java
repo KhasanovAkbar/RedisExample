@@ -18,26 +18,6 @@ public class ProductController {
         this.productStore = productStore;
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<Object> addProduct(@RequestBody Product product) {
-        //
-        productStore.addProduct(product);
-        return new ResponseEntity<>(
-                "Saved",
-                HttpStatus.OK
-        );
-    }
-
-    @GetMapping("/get")
-    public ResponseEntity<?> getProduct() {
-        //
-        Product product = productStore.getProduct();
-        return new ResponseEntity<>(
-                product,
-                HttpStatus.OK
-        );
-    }
-
     @PostMapping("/saveList")
     public ResponseEntity<?> addProducts(@RequestBody List<Product> products) {
         //
@@ -54,6 +34,16 @@ public class ProductController {
         List<Product> products = productStore.getProducts();
         return new ResponseEntity<>(
                 products,
+                HttpStatus.OK
+        );
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteProducts() {
+        //
+        productStore.deleteDb();
+        return new ResponseEntity<>(
+                "Redis deleted",
                 HttpStatus.OK
         );
     }

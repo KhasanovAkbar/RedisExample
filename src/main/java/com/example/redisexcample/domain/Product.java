@@ -2,45 +2,15 @@ package com.example.redisexcample.domain;
 
 import org.springframework.data.redis.core.RedisHash;
 
-import java.io.Serializable;
 import java.util.List;
 
 @RedisHash("Product")
-public class Product  implements Serializable {
+public class Product  extends DomainEntity {
     //
     private Float price;
     private boolean isSpecial;
 
-    public Product(Float price, boolean isSpecial) {
-        this.price = price;
-        this.isSpecial = isSpecial;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    public boolean isSpecial() {
-        return isSpecial;
-    }
-
-    public void setSpecial(boolean special) {
-        isSpecial = special;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "price=" + price +
-                ", isSpecial=" + isSpecial +
-                '}';
-    }
-
-    /* private transient Currency currency;
+     private transient Currency currency;
     private transient Category category;
     private transient Merchant merchant;
     private List<File> images;
@@ -51,9 +21,9 @@ public class Product  implements Serializable {
     public Product(String id){
         //
         super(id);
-    }*/
+    }
 
-   /* public Product(Float price, boolean isSpecial, Currency currency, Category category, Merchant merchant, List<File> images, List<Tag> tags, List<User> usersWhoLiked, List<ProductInfo> productInfos) {
+    public Product(Float price, boolean isSpecial, Currency currency, Category category, Merchant merchant, List<File> images, List<Tag> tags, List<User> usersWhoLiked, List<ProductInfo> productInfos) {
         this.price = price;
         this.isSpecial = isSpecial;
         this.currency = currency;
@@ -135,5 +105,5 @@ public class Product  implements Serializable {
 
     public void setProductInfos(List<ProductInfo> productInfos) {
         this.productInfos = productInfos;
-    }*/
+    }
 }

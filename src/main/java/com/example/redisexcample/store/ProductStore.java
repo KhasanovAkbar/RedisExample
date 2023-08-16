@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ProductStore {
     //
-    void addProduct(Product product);
-    Product getProduct();
     void addProducts(List<Product> products);
     List<Product> getProducts();
+
+    void deleteDb();
 }

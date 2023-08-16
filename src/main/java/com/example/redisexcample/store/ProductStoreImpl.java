@@ -16,22 +16,9 @@ public class ProductStoreImpl implements ProductStore {
     }
 
     @Override
-    public void addProduct(Product product) {
-        //
-        productService.putProduct(product);
-    }
-
-    @Override
-    public Product getProduct() {
-        //
-        return productService.getProduct();
-    }
-
-    @Override
     public void addProducts(List<Product> products) {
         //
         productService.putProducts(products);
-
     }
 
     @Override
@@ -39,6 +26,10 @@ public class ProductStoreImpl implements ProductStore {
         //
         return productService.getProducts();
     }
-    //
+
+    @Override
+    public void deleteDb() {
+        productService.clearRedis();
+    }
 
 }

@@ -1,6 +1,8 @@
 package com.example.redisexcample.domain;
 
-public class File {
+import java.io.Serializable;
+
+public class File implements Serializable {
     //
     private String name;
     private Float size;
